@@ -1,0 +1,48 @@
+
+You're trapped in a dungeon with your friend. You see a barrel. What do you do?
+
+(Move the barrel)
+
+The barrel rolls aside and you find a secret tunnel. What do you do?
+
+(Enter tunnel)
+
+You start to escape but your friend is too weak to go with you. They hand you a note. What do you do?
+
+(Read note)
+
+It is too dark to read the note. What do you do?
+
+(Leave)
+
+You crawl through the tunnel and the tunnel leads you to a beach. What do you do?
+
+(Look)
+
+In the water you see a boat. What do you do?
+
+(Get on the boat)
+
+Congratulations, you're heading to a new world! Do you want to play again?
+
+(Yes)
+
+You're trapped in a dungeon with your friend. You see a barrel. What do you do?
+
+(Sit down next to my friend)
+
+Your friend hands you a note. What do you do?
+
+(Light a match)
+
+The note says, "Don't leave me here." Do you leave your friend or stay?
+
+(Stay)
+
+Congratulations, you have stopped Whiterose's machine. Do you want to play again?
+
+(No)
+
+/Return to home page.
+
+
