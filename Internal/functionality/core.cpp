@@ -24,11 +24,14 @@ int boot() {
 }
 
 int game() {
+    int menu;
+    menu = printer("./exitscreen.json");
     return 0;
 }
 
 int main() {
-    int phil;
+    int phil, sg;
     phil = boot();
+    sg = game();
     return 0;
 }
