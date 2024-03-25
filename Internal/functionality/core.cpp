@@ -22,8 +22,6 @@ int waiter() {
 int boot() {
     int first, wait, second;
 
-    first = printer("ecorp.json");
-    wait = waiter();
     second = printer("apple-boot.json");
     return 0;
 }
@@ -71,7 +69,7 @@ int start_game(const std::string& option) {
 int main() {
     int phil, sg;
     std::string option;
-//    phil = boot();
+    phil = boot();
     sg = game();
     option = menu_interface();
     start_game(option);
