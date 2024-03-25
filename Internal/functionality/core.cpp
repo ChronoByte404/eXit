@@ -50,14 +50,28 @@ int start_game(const std::string& option) {
         // You can list files in the directory or perform other operations here
     } else {
         std::cerr << "Directory does not exist: " << path << std::endl;
+        return 1; // Return an error code indicating directory not found
     }
+
+    // Construct the command string
+    std::string command = "python3 " + path + "game.py";
+    
+    // Execute the command
+    std::cout << "Executing command: " << command << std::endl;
+    int result = system(command.c_str());
+
+    if (result != 0) {
+        std::cerr << "Failed to execute command: " << command << std::endl;
+        return 1; // Return an error code indicating command execution failure
+    }
+
     return 0;
 }
 
 int main() {
     int phil, sg;
     std::string option;
-    phil = boot();
+//    phil = boot();
     sg = game();
     option = menu_interface();
     start_game(option);
