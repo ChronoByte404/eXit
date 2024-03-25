@@ -1,17 +1,17 @@
 import os
 import json
 import time
+import sys
 from colorama import init, Back, Fore, Style
 
 init(autoreset=True)
 
 path = "./Internal/assets/"
-images = [path+"ecorp.json", path+"apple-boot.json"]
 
-def open_json(file):
+def print_json(json_path):
     linecount = 0
     os.system("clear")
-    with open(file, "r+") as file:
+    with open(json_path, "r+") as file:
         data = json.load(file)
         for item in data:
             linecount += 1
@@ -23,5 +23,5 @@ def open_json(file):
         time.sleep(2)
 
 if __name__ == "__main__":
-    for ipath in images:
-        open_json(ipath)
+    json_path = sys.argv[1]
+    print_json(path + json_path)
