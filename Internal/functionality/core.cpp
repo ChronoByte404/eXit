@@ -52,7 +52,7 @@ int start_game(const std::string& option) {
     }
 
     // Construct the command string
-    std::string command = "python3 " + path + "game.py";
+    std::string command = path + "game.out";
     
     // Execute the command
     std::cout << "Executing command: " << command << std::endl;
