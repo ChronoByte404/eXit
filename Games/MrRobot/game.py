@@ -2,6 +2,9 @@ import os
 
 # Startup
 
+def printer(template):
+    os.system(f"python3 ./Internal/printing/printer.py {template}.json")
+
 def restart():
     os.system("clear")
     trapped_in_dungeon()
@@ -12,7 +15,7 @@ def question(text):
 def game_over():
     question("Do you want to play again? [yes/no]")
     option = get_answer()
-    if option.lower() == "yes":
+    if option.lower() in "yes":
         restart()
     else:
         os.system("clear")
@@ -25,56 +28,93 @@ def get_answer():
     return chosen_option
 
 def trapped_in_dungeon():
-    question("You're trapped in a dungeon with your friend. You see a barrel. What do you do?")
+    printer("dungeonbarrel")
+    question("You're trapped in a dungeon with your friend. You see a barrel. You can move the barrel, or sit with your friend. What do you do?")
     chosen_option = get_answer()
-    if chosen_option.lower() == "move the barrel":
+    if chosen_option.lower() in "move the barrel":
         secret_tunnel()
     else:
-        game_over()
+        hand_note()
 
 def secret_tunnel():
-    question("The barrel rolls aside and you find a secret tunnel. What do you do?")
+    printer("tunnel")
+    question("The barrel rolls aside and you find a secret tunnel. You can enter the tunnel, or sit with your friend. What do you do?")
     chosen_option = get_answer()
-    if chosen_option.lower() == "enter tunnel":
+    if chosen_option.lower() in "enter tunnel":
         escape_from_dungeon()
     else:
-        game_over()
+        hand_note()
 
 def escape_from_dungeon():
-    question("You start to escape but your friend is too weak to go with you. They hand you a note. What do you do?")
+    printer("friendnote1")
+    question("You start to escape but your friend is too weak to go with you. They hand you a note. You can read the note, or leave. What do you do?")
     chosen_option = get_answer()
-    if chosen_option.lower() == "read note":
+    if chosen_option.lower() in "read note":
         read_note()
     else:
-        game_over()
+        beach()
+
+def hand_note():
+    printer("friendnote1")
+    question("Your friend hands you a note. You can read the note, or leave. What do you do?")
+    chosen_option = get_answer()
+    if chosen_option.lower() in "read note":
+        read_note()
+    else:
+        beach()
 
 def read_note():
-    question("It is too dark to read the note. What do you do?")
+    printer("handwithnote")
+    question("It is too dark to read the note. You can leave, or light a match. What do you do?")
     chosen_option = get_answer()
-    if chosen_option.lower() == "leave":
+    if chosen_option.lower() in "leave":
         beach()
     else:
-        game_over()
+        light_match()
+
+def light_match():
+    printer("dlmh")
+    d, l, mh = "Don't ", "leave ", "me here."
+    dlmh = d+l+mh
+    question(f"The note says {dlmh}. Do you stay with your friend or leave?")
+    chosen_option = get_answer()
+    if chosen_option.lower() in "leave":
+        beach()
+    else:
+        loss()
 
 def beach():
-    question("You crawl through the tunnel and the tunnel leads you to a beach. What do you do?")
+    printer("beach")
+    question("You crawl through the tunnel and the tunnel leads you to a beach. Do you look or turn back?")
     chosen_option = get_answer()
-    if chosen_option.lower() == "look":
+    if chosen_option.lower() in "look":
         boat()
     else:
-        game_over()
+        escape_from_dungeon()
 
 def boat():
-    question("In the water you see a boat. What do you do?")
+    printer("boat")
+    question("In the water you see a boat. You can get on the boat, or stay on the beach. What do you do?")
     chosen_option = get_answer()
-    if chosen_option.lower() == "get on the boat":
+    if chosen_option.lower() in "get on the boat":
         win()
     else:
-        game_over()
+        loss()
 
 def win():
+    printer("new_world")
     question("Congratulations, you're heading to a new world!")
     game_over()
 
-if __name__ == "__main__":
+def win2():
+    printer("whiterose")
+    question("Congratulations, you have decided to remain and therefore stopped Whiterose's machine!")
+    game_over()
+
+def loss():
+    printer("starvation")
+    question("The colony boat has left without you, and you and your friend have starved to death!")
+    game_over()
+
+if __name__ in "__main__":
     trapped_in_dungeon()
