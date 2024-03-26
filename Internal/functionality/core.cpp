@@ -9,7 +9,7 @@
 namespace fs = std::filesystem;
 
 int printer(const std::string& templateFile) {
-    std::string command = "python3 ./Internal/printing/printer.py " + templateFile;
+    std::string command = "./Internal/printing/printer " + templateFile;
     system(command.c_str());
     return 0;
 }
